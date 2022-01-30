@@ -27,6 +27,7 @@ class ItemDetailViewController: BaseViewController {
     let heightTableViewHeader : CGFloat = UIScreen.main.bounds.width * 0.7
     var presenter : ItemDetailPresentation?
     var item : ItemVO!
+    let phoneNumber : String = "09420000002"
     
     private enum CellType : Int {
         case itemNameAndPrice = 0
@@ -140,6 +141,14 @@ class ItemDetailViewController: BaseViewController {
             }
         }
     }
+    
+    override func bindData() {
+        super.bindData()
+        btnCall.rx.tap.bind{ [unowned self] in
+            phoneNumber.makeACall()
+        }.disposed(by: disposableBag)
+    }
+    
 }
 
 // MARK: - tableView delegate and dataSource

@@ -34,6 +34,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .primary_green
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         } else if let navigationBar = navigationController?.navigationBar {
@@ -47,10 +48,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             if let image = getImageFrom(layer: navigationLayer) {
                 navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
             }
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         }
         
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
     }
     
     func addTapGestures() {
