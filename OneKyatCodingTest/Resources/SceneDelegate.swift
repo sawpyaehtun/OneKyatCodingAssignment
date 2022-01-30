@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     private func setRootViewController(){
         let vc = UINavigationController(rootViewController: LoginBuilder().build())
-        window?.rootViewController = MainTabbarBuilder().build()
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
 }
